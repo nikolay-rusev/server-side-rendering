@@ -1,0 +1,11 @@
+# We want all our repo files to use line separator LF!
+# * text eol=lf
+*.js diff eol=lf
+*.json diff eol=lf
+*.html diff eol=lf
+*.css diff eol=lf
+*.gitattributes diff
+*.gitignore diff
+*.txt diff eol=lf
+# For correct github language analysis
+src/assets/* linguist-vendored
