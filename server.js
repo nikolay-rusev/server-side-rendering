@@ -10,9 +10,9 @@ const handleSSR = async (req, res) => {
         args: ["--font-render-hinting=none", "--force-color-profile=srgb"]
     });
     const page = await browser.newPage();
-    await page.setUserAgent(
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36"
-    );
+    // await page.setUserAgent(
+    //     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36"
+    // );
 
     const localURL = mainURL + req.originalUrl;
     await page.goto(localURL, { waitUntil: "networkidle0" });
