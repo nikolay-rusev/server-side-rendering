@@ -1,1 +1,1 @@
-"# Testing puppeteer and rendertron" 
+Testing puppeteer and rendertron 
