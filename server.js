@@ -6,8 +6,8 @@ const mainURL = "http://localhost:3090";
 
 const handleSSR = async (req, res) => {
     const browser = await puppeteer.launch({
-        headless: true,
-        args: ["--font-render-hinting=none", "--force-color-profile=srgb"]
+        headless: true
+        // args: ["--font-render-hinting=none", "--force-color-profile=srgb"]
     });
     const page = await browser.newPage();
     // await page.setUserAgent(
