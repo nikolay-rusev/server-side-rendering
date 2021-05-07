@@ -1,7 +1,7 @@
 {
-  "name": "express-tutorial",
+  "name": "Server-side rendering",
   "version": "1.0.0",
-  "description": "Testing puppeteer and rendertron",
+  "description": "Server-side rendering with puppeteer & rendertron",
   "main": "server/server.js",
   "scripts": {
     "server": "node server/server.js",
