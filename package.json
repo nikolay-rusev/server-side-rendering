@@ -2,8 +2,10 @@
   "name": "express-tutorial",
   "version": "1.0.0",
   "description": "Testing puppeteer and rendertron",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
+    "server": "node server/server.js",
+    "rendertron": "node server/rendertron.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,7 +16,7 @@
     "express-http-proxy": "^1.6.2",
     "node-fetch": "^2.6.1",
     "prettier": "^1.19.1",
-    "puppeteer": "^9.1.1",
+    "puppeteer": "^9.0.0",
     "rendertron-middleware": "^0.1.5"
   },
   "prettier": {
