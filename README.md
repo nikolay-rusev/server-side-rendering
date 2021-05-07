@@ -1,4 +1,4 @@
-# Server-side rendering with puppeteer & rendertron
+# Server side rendering with puppeteer & rendertron
 Test environment: http://localhost:3000
 
 ### For dev testing:
