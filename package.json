@@ -12,6 +12,14 @@
   "dependencies": {
     "express": "^4.17.1",
     "puppeteer": "^9.1.1",
-    "rendertron-middleware": "^0.1.5"
+    "rendertron-middleware": "^0.1.5",
+    "prettier": "^1.19.1"
+  },
+  "prettier": {
+    "tabWidth": 4,
+    "printWidth": 100,
+    "singleQuote": false,
+    "trailingComma": "none",
+    "jsxBracketSameLine": false
   }
 }
