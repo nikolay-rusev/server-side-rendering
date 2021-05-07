@@ -8,7 +8,7 @@ app.get("*", async (req, res) => {
 
     console.log("req.originalUrl: " + req.originalUrl);
 
-    const local_url = "http://me:3090/?context=home";
+    const local_url = "http://localhost:3090" + req.originalUrl;
     await page.goto(local_url, {
         waitUntil: "networkidle0"
     });
