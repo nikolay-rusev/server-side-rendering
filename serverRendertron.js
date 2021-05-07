@@ -10,4 +10,9 @@ app.use(
 );
 
 app.use(express.static('files'));
-app.listen(8080);
+
+// app.get('*', async (req, res) => {
+//
+// });
+
+app.listen(3000, () => console.log(`Server is listening on port: 3000`))
