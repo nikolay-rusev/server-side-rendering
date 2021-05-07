@@ -3,6 +3,8 @@ const app = express();
 const puppeteer = require("puppeteer");
 
 app.get("*", async (req, res) => {
+    console.log("request url: " + req.url);
+
     const browser = await puppeteer.launch({
         headless: true,
         args: ["--font-render-hinting=none", "--force-color-profile=srgb"]
@@ -13,7 +15,7 @@ app.get("*", async (req, res) => {
     );
 
     const local_url = "http://localhost:3090" + req.originalUrl;
-    await page.goto(local_url, { waitUntil: "networkidle2" });
+    await page.goto(local_url, { waitUntil: "networkidle0" });
 
     const html = await page.evaluate(() => {
         return document.documentElement.innerHTML;
