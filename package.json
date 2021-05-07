@@ -11,9 +11,11 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
+    "express-http-proxy": "^1.6.2",
+    "node-fetch": "^2.6.1",
+    "prettier": "^1.19.1",
     "puppeteer": "^9.1.1",
-    "rendertron-middleware": "^0.1.5",
-    "prettier": "^1.19.1"
+    "rendertron-middleware": "^0.1.5"
   },
   "prettier": {
     "tabWidth": 4,
