@@ -15,7 +15,7 @@ const handleSSR = async (req, res) => {
     // );
 
     const localURL = mainURL + req.originalUrl;
-    await page.goto(localURL, { waitUntil: "networkidle0" });
+    await page.goto(localURL, { waitUntil: "networkidle2" });
 
     const html = await page.evaluate(() => {
         return document.documentElement.innerHTML;
