@@ -1,10 +1,13 @@
 const express = require("express");
+const puppeteer = require("puppeteer");
+// const devices = require("puppeteer/lib/cjs/puppeteer/common/DeviceDescriptors");
 const proxy = require("express-http-proxy");
 const app = express();
-const puppeteer = require("puppeteer");
 const mainURL = "http://localhost:3090";
 
 const handleSSR = async (req, res) => {
+    // const iPhonex = devices["iPhone X"];
+
     const browser = await puppeteer.launch({
         headless: true
         // args: ["--font-render-hinting=none", "--force-color-profile=srgb"]
@@ -15,13 +18,18 @@ const handleSSR = async (req, res) => {
     // );
 
     const localURL = mainURL + req.originalUrl;
+    await page.setViewport({ width: 1280, height: 800 });
+    // await page.emulate(iPhonex);
     await page.goto(localURL, { waitUntil: "networkidle2" });
+    await page.screenshot({ path: "./screenshots/screenshot.png" });
 
     const html = await page.evaluate(() => {
         return document.documentElement.innerHTML;
     });
 
     res.send(html);
+
+    await browser.close();
 };
 
 app.get("/api*", proxy(mainURL));
