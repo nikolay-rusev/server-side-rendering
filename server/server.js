@@ -9,7 +9,7 @@ const handleSSR = async (req, res) => {
     // const iPhonex = devices["iPhone X"];
 
     const browser = await puppeteer.launch({
-        headless: true
+        headless: false
         // args: ["--font-render-hinting=none", "--force-color-profile=srgb"]
     });
     const page = await browser.newPage();
@@ -18,6 +18,7 @@ const handleSSR = async (req, res) => {
     // );
 
     const localURL = mainURL + req.originalUrl;
+    console.log("SSR request to " + localURL + "");
     await page.setViewport({ width: 1280, height: 800 });
     // await page.emulate(iPhonex);
     await page.goto(localURL, { waitUntil: "networkidle2" });
@@ -32,8 +33,13 @@ const handleSSR = async (req, res) => {
     await browser.close();
 };
 
-app.get("/api*", proxy(mainURL));
-app.get("*.*", proxy(mainURL));
+function proxyFunc(url) {
+    console.log("Proxy request to " + url + "");
+    return proxy(url);
+}
+
+app.get("/api*", proxyFunc(mainURL));
+app.get("*.*", proxyFunc(mainURL));
 app.get("*", handleSSR);
 // app.get("/?context=*", handleSSR);
 
